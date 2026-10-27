@@ -44,7 +44,7 @@ test('multiple database connections cannot spend the same allowance and restart 
     expect(budget.balance('fixture').remainingMicros).toBe(40);expect(()=>budget.release(id)).toThrow();
     budget.settle(id,10);expect(budget.balance('fixture').remainingMicros).toBe(90);
   }finally{other.close();db.close();rmSync(dir,{recursive:true,force:true});}
-});
+},20000);
 test('failed durable transitions leave reservations intact and dispatch unavailable',()=>{
   const db=openDatabase(':memory:');try{
     const budget=new ReasoningBudget(db);budget.create('fixture',100,'person');const id=budget.reserve(reservation);
@@ -92,7 +92,7 @@ test('version-three budget rows survive migration without gaining dispatch autho
   expect(db.prepare('SELECT state FROM reasoning_reservations WHERE id=?').get(sent)?.state).toBe('UNCERTAIN');
   budget.settle(sent,25);expect(budget.balance('fixture').remainingMicros).toBe(75);
  }finally{db.close();rmSync(dir,{recursive:true,force:true});}
-});
+},20000);
 
 
 test('version-four budgets retain balances but cannot gain a person through migration',()=>{

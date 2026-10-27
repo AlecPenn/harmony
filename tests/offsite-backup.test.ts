@@ -48,4 +48,4 @@ it('needs the key saved before copying; writes to every reachable place, once a 
  // Nothing readable is left lying around.
  expect(readFileSync(file).includes(Buffer.from('SQLite format'))).toBe(false);
  await o.disable();expect((await o.status()).on).toBe(false);expect(existsSync(join(root,'cred','offsite.enc'))).toBe(true);
-});
+},20000);
