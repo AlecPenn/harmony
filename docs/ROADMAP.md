@@ -36,6 +36,7 @@ If not met, the fix is distribution, not pricing. These thresholds are first gue
       Settings saves the private profile and optional coordinates (2026-10-27).
 - [ ] First run with no home set: when asked for weather/local info without a place, she asks which town and offers
       to remember it — rather than failing or guessing.
+  - 2026-10-27: Weather with no saved home asks and offers the Settings path; saving requires an explicit Settings action. A live model/voice follow-up and other local-info paths still need verification.
 - [x] CI: `.github/workflows/ci.yml` running `npm ci`, `npm run typecheck`, `npm test` on `windows-latest` for pushes
       and PRs to `main`. (An earlier session was blocked from writing `.github/`.)
 - [ ] `CHANGELOG.md` started; version in `package.json` follows semver.
