@@ -38,3 +38,12 @@ test('manifest references must be listed and paths must be safe on Windows',()=>
  expect(validator.checkReferences({...base,type:'voice',files:{'model.onnx':hash},content:{engine:'piper',model:'model.onnx'}})).toEqual({ok:true});
  expect(validator.parse(new TextEncoder().encode(JSON.stringify({...base,content:{tokens:'unlisted.json'}}))).ok).toBe(false);
 });
+
+test('screen payload names by pack type without treating extensions as content validation',()=>{
+ const hash='0'.repeat(64);
+ expect(validator.checkPayloadNames(base)).toEqual({ok:true});
+ expect(validator.checkPayloadNames({...base,files:{'tokens.json':hash,'run.js':hash}})).toMatchObject({ok:false,error:'Unsupported payload file: run.js'});
+ expect(validator.checkPayloadNames({...base,files:{'tokens.json':hash,'payload.exe':hash}}).ok).toBe(false);
+ expect(validator.checkPayloadNames({...base,files:{'tokens.json':hash,'picture.glb':hash}}).ok).toBe(false);
+ expect(validator.checkPayloadNames({...base,files:{'tokens.json':hash,'json':hash}}).ok).toBe(false);
+});

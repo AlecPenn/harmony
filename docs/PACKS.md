@@ -61,7 +61,9 @@ Illustrative theme manifest (the repeated zeroes are a placeholder, **not** the 
 | `sounds` | `cues` | — | JSON mapping of supported cue names to bundled audio paths. |
 
 The skin mood file must cover exactly the nine core moods: idle, wake, listening, thinking, speaking, success,
-warning, stopped, and offline. Packs cannot add moods. The detailed mood, theme, sound, and voice payload schemas,
+warning, stopped, and offline. Packs cannot add moods. A standalone preliminary filename screen rejects extensions outside type-specific allowlists, but is not yet connected to a loader and does not inspect bytes or confirm that a reference has the right type.
+
+The detailed mood, theme, sound, and voice payload schemas,
 file extensions, size limits, shader uniforms, GPU tiers, and accessibility rules still need design and tests before
 loading any of them. The current built-in orb is procedural; how it becomes a declarative pack is not yet settled.
 The built-in orb remains the fallback until that is solved.

@@ -33,6 +33,16 @@ export class PackManifestValidator {
   }
   return {ok:true};
  }
+ /** Filename screening only. A permitted extension does not prove that bytes are safe or valid for a given type. */
+ checkPayloadNames(value:unknown):{ok:true}|{ok:false;error:string}{
+  const refs=this.checkReferences(value);if(!refs.ok)return refs;
+  const manifest=value as {type:'skin'|'voice'|'theme'|'sounds';files:Record<string,string>};
+  const allowed:Record<typeof manifest.type,readonly string[]>={skin:['glb','json','png','webp','frag','webm','txt','md'],voice:['onnx','json','bin','wav','ogg','txt','md'],theme:['json','txt','md'],sounds:['json','wav','ogg','txt','md']};
+  for(const path of Object.keys(manifest.files)){const name=path.split('/').at(-1)??'',dot=name.lastIndexOf('.'),ext=dot>0?name.slice(dot+1).toLowerCase():'';
+   if(!ext||!allowed[manifest.type].includes(ext))return {ok:false,error:`Unsupported payload file: ${path}`};
+  }
+  return {ok:true};
+ }
  /** Bounded strict UTF-8 JSON, with duplicate keys rejected at every depth. No filesystem access. */
  parse(bytes:Uint8Array):{ok:true;value:unknown}|{ok:false;error:string}{
   if(bytes.byteLength>65536)return {ok:false,error:'Manifest exceeds 64 KiB'};
