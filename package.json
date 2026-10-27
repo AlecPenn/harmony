@@ -23,6 +23,7 @@
     "godseye:check": "node scripts/check-gods-eye.ts"
   },
   "dependencies": {
+    "@cfworker/json-schema": "^4.1.1",
     "@react-three/fiber": "^9.8.1",
     "framer-motion": "^14.1.0",
     "react": "^19.3.0",

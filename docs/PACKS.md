@@ -1,6 +1,7 @@
 # HARMONY packs — draft format
 
-**Design draft, not a working feature.** HARMONY does not yet load, validate, install, or hot-reload packs. This
+**Design draft, not a working feature.** HARMONY does not yet load, install, or hot-reload packs. A standalone core
+manifest-structure validator exists, but it does not validate a pack for use. This
 specification is intended to guide the Phase 1 implementation and may change before the first pack ships.
 
 A pack is a directory directly under `data/packs/`, with `pack.json` at its root and one purpose: `skin`, `voice`,

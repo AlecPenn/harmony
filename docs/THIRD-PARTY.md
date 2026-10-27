@@ -10,6 +10,11 @@ request, check each file against a pinned SHA-256 (the `docs/*.json` files), and
 Electron, React, Three.js, @react-three/fiber, Framer Motion, Zustand, Vite, esbuild, TypeScript, Vitest and
 Playwright, all MIT (Apache-2.0 for TypeScript and Playwright). Full texts are in `node_modules` after `npm ci`.
 
+## Pack manifest validation
+
+@cfworker/json-schema (JSON Schema validation), MIT: https://github.com/cfworker/cfworker. Version 4.1.1 was
+checked on GitHub on 2026-10-27. This interpreter does not generate or evaluate code at runtime.
+
 ## Brain
 
 | Component | Licence |

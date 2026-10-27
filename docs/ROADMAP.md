@@ -26,6 +26,8 @@ If not met, the fix is distribution, not pricing. These thresholds are first gue
 
 **Done when:** a stranger can clone the repo, read the README, and find nothing personal in it or its history.
 
+2026-10-27: An earlier public commit still contains a former personal default. Alec chose to leave published history unchanged. The history portion of this condition is therefore not met; keep that limitation visible while continuing other work.
+
 - [x] Fresh one-commit history, MIT licence, public repo (2026-10-27)
 - [x] Secrets scan of all 537 files: no keys, tokens, emails, user paths or family names (2026-10-27, Claude)
 - [x] `.gitignore` covers `.env`, `data/`, `tokens/`, `credentials/`, `voice-samples/`, `embeddings/`, `handoff/`
@@ -72,7 +74,7 @@ data/packs/
 | `capabilities` | What it needs (WebGL2, GPU tier) so the loader can refuse gracefully |
 
 - [ ] JSON Schema for `pack.json` in `docs/pack.schema.json`, plus validation in core
-  - 2026-10-27: Draft schema and `docs/PACKS.md` written; core validation and type-specific payload formats remain unimplemented.
+  - 2026-10-27: Draft schema and `docs/PACKS.md` written; standalone core manifest-structure validation exists. Pack loading, security checks and type-specific payload formats remain unimplemented.
 - [ ] Loader: verify every checksum; mismatch → refuse and name the file
 - [ ] Loader: declarative only — reject any pack containing executable code (see AGENTS.md)
 - [ ] Fail soft: a broken pack logs why and falls back to the default; never crashes the app
