@@ -30,7 +30,7 @@ If not met, the fix is distribution, not pricing. These thresholds are first gue
 - [x] Secrets scan of all 537 files: no keys, tokens, emails, user paths or family names (2026-10-27, Claude)
 - [x] `.gitignore` covers `.env`, `data/`, `tokens/`, `credentials/`, `voice-samples/`, `embeddings/`, `handoff/`
 - [x] Hardcoded "Madison, Wisconsin" default removed; home town now `home` in `data/profile.json` (commit `a2a3cfc`)
-- [ ] **Verify `a2a3cfc`**: `npm install && npm run typecheck && npm test`. It was pushed without tests running
+- [x] **Verify `a2a3cfc`**: `npm install && npm run typecheck && npm test`. It was pushed without tests running
       (dependencies were not installed in that session). Fix anything it broke.
 - [ ] Settings UI to set the home town (place + optional lat/lon), saved to `data/profile.json` or the config store.
       Today it can only be set by editing the file.
