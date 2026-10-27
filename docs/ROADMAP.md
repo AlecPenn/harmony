@@ -36,7 +36,7 @@ If not met, the fix is distribution, not pricing. These thresholds are first gue
       Today it can only be set by editing the file.
 - [ ] First run with no home set: when asked for weather/local info without a place, she asks which town and offers
       to remember it — rather than failing or guessing.
-- [ ] CI: `.github/workflows/ci.yml` running `npm ci`, `npm run typecheck`, `npm test` on `windows-latest` for pushes
+- [x] CI: `.github/workflows/ci.yml` running `npm ci`, `npm run typecheck`, `npm test` on `windows-latest` for pushes
       and PRs to `main`. (An earlier session was blocked from writing `.github/`.)
 - [ ] `CHANGELOG.md` started; version in `package.json` follows semver.
 
