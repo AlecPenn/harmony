@@ -76,6 +76,7 @@ data/packs/
 - [ ] JSON Schema for `pack.json` in `docs/pack.schema.json`, plus validation in core
   - 2026-10-27: Draft schema and `docs/PACKS.md` written; standalone core manifest-structure validation exists. Pack loading, security checks and type-specific payload formats remain unimplemented.
 - [ ] Loader: verify every checksum; mismatch → refuse and name the file
+  - 2026-10-27: Standalone checksum helper checks supplied bytes; filesystem intake, safe snapshots, integration and fail-soft loading are still unimplemented.
 - [ ] Loader: declarative only — reject any pack containing executable code (see AGENTS.md)
 - [ ] Fail soft: a broken pack logs why and falls back to the default; never crashes the app
 - [ ] Dev hot-reload: watch `data/packs/` and reload on change
