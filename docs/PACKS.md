@@ -88,6 +88,20 @@ Schema validation is only the first gate. A future loader must, at minimum:
    Hot reload must validate a complete candidate before replacing the active pack and must not expose partially written
    files. It must never require executable pack code.
 
+### Windows file-intake investigation
+
+Node's Windows file-open flags do not include `O_NOFOLLOW`; checking a path and then opening it is therefore not by
+itself a race-free no-link guarantee. A temporary experiment with `@openclaw/fs-safe` 0.26.13 in native `require`
+mode rejected a junction and ran under the installed Electron runtime. Its own documentation describes Windows
+containment as best-effort and does not claim session-wide protection against a concurrently changing directory.
+Bundling it directly into the existing CommonJS build failed; treating it as an external dependency worked in the
+small probe, but full application packaging, update behavior, and adversarial tests remain unverified. The library was
+not added as a project dependency. Evaluate a handle-based or isolated-worker approach, retain the exact verified
+bytes or a protected snapshot for consumers, and fail closed if the required protection is unavailable. Do not infer
+that one successful junction test proves the whole intake safe.
+
+References: [Node.js filesystem flags](https://nodejs.org/download/release/v24.17.0/docs/api/fs.html#file-open-constants),
+[fs-safe native security model](https://github.com/openclaw/fs-safe/blob/main/docs/security-model.md).
 The schema deliberately does not verify hashes, resolve paths, validate licence rights, enforce cross-file references,
 or prove a pack safe. Those are implementation responsibilities and must have adversarial tests. Do not accept a pack
 merely because it passes JSON Schema.
