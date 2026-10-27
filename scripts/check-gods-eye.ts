@@ -3,14 +3,19 @@
 import {dirname,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {GodsEye,routeQuestion} from '../core/gods-eye.ts';
+import {readProfile} from '../core/profile.ts';
 import {WorldFeeds,FEED_NAMES,type FeedKind} from '../core/world-feeds.ts';
 const root=join(dirname(fileURLToPath(import.meta.url)),'..');
-const place=process.argv[2]??'Madison, Wisconsin';
+// Place to check: the argument, else your home from data/profile.json, else a neutral city.
+const home=readProfile(root).home;
+const place=process.argv[2]??home?.place??'Denver, Colorado';
+// Point-based feeds (aurora, river) need coordinates; only used when your profile supplies them.
+const near=home?.lat!==undefined&&home.lon!==undefined?{lat:home.lat,lon:home.lon,name:home.place}:null;
 console.log('World feeds (from God\'s Eye v9):');
 const feeds=new WorldFeeds();let fine=0;
 const kinds:FeedKind[]=['volcano','disaster','alert','natural','space','aurora','outage','fireball','asteroid','airport','cyber','quake','hurricane','wildfire','river'];
 for(const k of kinds){
- const t=Date.now();const r=await feeds.feed(k,undefined,k==='aurora'?{lat:43.07,lon:-89.4,radiusKm:1,name:'Madison'}:k==='river'?{lat:43.07,lon:-89.4,radiusKm:250,name:'Madison'}:undefined);if(r.ok)fine++;
+ const t=Date.now();const r=await feeds.feed(k,undefined,near&&k==='aurora'?{...near,radiusKm:1}:near&&k==='river'?{...near,radiusKm:250}:undefined);if(r.ok)fine++;
  console.log(`${r.ok?'OK  ':'FAIL'} ${FEED_NAMES[k]}: ${r.events.length} item(s) in ${Date.now()-t} ms${r.events[0]?`\n     e.g. ${r.events[0].title.slice(0,150)}`:''}${r.note?`\n     ${r.note}`:''}`);
 }
 console.log(`${fine} of ${kinds.length} feeds answered.\n`);

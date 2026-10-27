@@ -207,7 +207,7 @@ export interface GodsEyeBridge {
 /** Offered when web lookups are enabled: read-only, answered in a second pass from the fetched data. */
 export const webModelTools:readonly ModelTool[]=Object.freeze<ModelTool[]>([
  {name:'get_weather',description:'Current weather and the next days\' forecast for a place.',parameters:{type:'object',properties:{
-  place:{type:'string',description:'Town or city, e.g. "Madison, Wisconsin". Use where the person lives if they did not say.'}},required:['place']}},
+  place:{type:'string',description:'Town or city, e.g. "Portland, Oregon". If they did not say, use their home town only if you have been told it; otherwise ask which place they mean. Never guess a town.'}},required:['place']}},
  {name:'get_news',description:'Latest news headlines, optionally about a topic.',parameters:{type:'object',properties:{
   topic:{type:'string',description:'What the news should be about, or "" for top stories.'}},required:['topic']}},
  {name:'web_search',description:'Search the web for current facts, scores, prices, events or anything you are unsure of.',parameters:{type:'object',properties:{
