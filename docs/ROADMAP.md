@@ -39,7 +39,7 @@ If not met, the fix is distribution, not pricing. These thresholds are first gue
   - 2026-10-27: Weather asks and offers the Settings path; saving requires an explicit Settings action. The installed local model handled the follow-up in a text-level check. Voice capture/playback was not tested. God's Eye remains out of scope as stated above.
 - [x] CI: `.github/workflows/ci.yml` running `npm ci`, `npm run typecheck`, `npm test` on `windows-latest` for pushes
       and PRs to `main`. (An earlier session was blocked from writing `.github/`.)
-- [ ] `CHANGELOG.md` started; version in `package.json` follows semver.
+- [x] `CHANGELOG.md` started; version in `package.json` follows semver (2026-10-27).
 
 Madison still appears in docs and UI copy as an *example* ("Harmony, watch Madison") and `core/metro.ts` is a real
 Madison Metro integration. Those are fine — they are not silent defaults. Leave them.
