@@ -21,3 +21,9 @@ test('saving home preserves other profile fields and refuses damaged or invalid 
  expect(()=>writeHome(root,{place:'Valid',lat:10})).toThrow();
  writeFileSync(path,'{broken');expect(()=>writeHome(root,{place:'Valid'})).toThrow();expect(readFileSync(path,'utf8')).toBe('{broken');
 });
+
+test('desktop test profile stores home separately from the normal profile',()=>{
+ const root=mkdtempSync(join(tmpdir(),'profile-isolation-')),testDir=join(root,'data','test-profiles','test-fixture');
+ writeHome(root,{place:'Normal town'});writeHome(root,{place:'Test town'},testDir);
+ expect(readProfile(root).home?.place).toBe('Normal town');expect(readProfile(root,testDir).home?.place).toBe('Test town');
+});

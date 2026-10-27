@@ -32,8 +32,8 @@ If not met, the fix is distribution, not pricing. These thresholds are first gue
 - [x] Hardcoded "Madison, Wisconsin" default removed; home town now `home` in `data/profile.json` (commit `a2a3cfc`)
 - [x] **Verify `a2a3cfc`**: `npm install && npm run typecheck && npm test`. It was pushed without tests running
       (dependencies were not installed in that session). Fix anything it broke.
-- [ ] Settings UI to set the home town (place + optional lat/lon), saved to `data/profile.json` or the config store.
-      Today it can only be set by editing the file.
+- [x] Settings UI to set the home town (place + optional lat/lon), saved to `data/profile.json` or the config store.
+      Settings saves the private profile and optional coordinates (2026-10-27).
 - [ ] First run with no home set: when asked for weather/local info without a place, she asks which town and offers
       to remember it — rather than failing or guessing.
 - [x] CI: `.github/workflows/ci.yml` running `npm ci`, `npm run typecheck`, `npm test` on `windows-latest` for pushes

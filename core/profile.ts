@@ -13,11 +13,11 @@ export interface OwnerProfile {job?:Partial<JobProfile>;home?:OwnerHome;}
 const text=(v:unknown,n:number)=>typeof v==='string'?v.replace(/[\u0000-\u001f\u007f]+/g,' ').trim().slice(0,n):undefined;
 
 /** Save a home without discarding other private profile fields. Refuse to overwrite an unreadable profile. */
-export function writeHome(root:string,input:OwnerHome):OwnerHome{
+export function writeHome(root:string,input:OwnerHome,dataDir=join(root,'data')):OwnerHome{
  const place=text(input?.place,120);if(!place||place.length<2)throw new Error('Enter a town or city.');
  const {lat,lon}=input;
  if((lat===undefined)!==(lon===undefined)|| (lat!==undefined&&(!Number.isFinite(lat)||Math.abs(lat)>90)) || (lon!==undefined&&(!Number.isFinite(lon)||Math.abs(lon)>180)))throw new Error('Enter both valid coordinates, or leave both blank.');
- const dir=join(root,'data'),path=join(dir,'profile.json');let raw:Record<string,unknown>={};
+ const dir=dataDir,path=join(dir,'profile.json');let raw:Record<string,unknown>={};
  if(existsSync(path)){const value:unknown=JSON.parse(readFileSync(path,'utf8'));if(!value||typeof value!=='object'||Array.isArray(value))throw new Error('The existing profile is not an object.');raw=value as Record<string,unknown>;}
  const home:OwnerHome={place,...(lat!==undefined&&lon!==undefined?{lat,lon}:{})};raw.home=home;
  mkdirSync(dir,{recursive:true});const temp=join(dir,`.profile-${randomUUID()}.tmp`);
@@ -25,9 +25,9 @@ export function writeHome(root:string,input:OwnerHome):OwnerHome{
  return home;
 }
 
-export function readProfile(root:string):OwnerProfile{
+export function readProfile(root:string,dataDir=join(root,'data')):OwnerProfile{
  try{
-  const path=join(root,'data','profile.json');if(!existsSync(path))return {};
+  const path=join(dataDir,'profile.json');if(!existsSync(path))return {};
   const raw=JSON.parse(readFileSync(path,'utf8')) as {job?:Record<string,unknown>;home?:Record<string,unknown>};
   const out:OwnerProfile={};
   const h=raw?.home&&typeof raw.home==='object'?raw.home:null;

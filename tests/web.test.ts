@@ -80,7 +80,7 @@ test('lookups run as journaled read-only tools, record their sources, and never 
  expect(out.spoken).toBe('');expect(out.changed).toBe(false);expect(out.lookup?.report).toContain('57°F');expect(out.lookup?.sources[0].site).toBe('open-meteo.com');
  expect(new ActionJournal(db).recent()[0]).toMatchObject({tool_id:'web.weather',risk:'SAFE',state:'SUCCEEDED'});
  expect(db.prepare('SELECT kind,query FROM web_lookups').all()).toEqual([{kind:'weather',query:'Madison, Wisconsin'}]);
- expect((await actions.run([{name:'get_weather',arguments:{place:''}}],signal())).spoken).toMatch(/Which town/);
+ expect((await actions.run([{name:'get_weather',arguments:{place:''}}],signal())).spoken).toMatch(/Which town.*Settings.*remember/);
  const failed=await actions.run([{name:'get_weather',arguments:{place:'Nowhereville'}}],signal());
  expect(failed.lookup?.report).toContain("Lookup failed: I couldn't find a place called Nowhereville");
 });
