@@ -25,11 +25,11 @@ Claude, with secrets masked):
 }
 ```
 
-`home` is the default place for weather and local feeds. Set it and HARMONY stops asking which town you mean; leave
+`home` is the default place for weather when no place is specified. Set it in Settings → Your town, or edit the file; leave
 it out and she asks rather than guessing. `lat` and `lon` are optional and only needed by the point-based feeds
 (aurora, river levels) — leave them out and those feeds run worldwide instead of near you.
 
-You can also edit it in the app (Settings, Jobs); what you save there takes priority. Email reply drafts are signed
+The job profile can also be edited in the app (Settings, Jobs); what you save there takes priority. Email reply drafts are signed
 with the `name` here.
 
 Things you ask HARMONY to remember ("remember that I live in...") are stored in her database, also inside `data`.

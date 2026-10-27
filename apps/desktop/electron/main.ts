@@ -45,7 +45,7 @@ import {GodsEye} from '../../../core/gods-eye.ts';
 import {distrustPatterns,distrustInNode,chainDistrusted} from '../../../core/tls-trust.ts';
 import {WorldFeeds} from '../../../core/world-feeds.ts';
 import {MadisonMetro} from '../../../core/metro.ts';
-import {readProfile} from '../../../core/profile.ts';
+import {readProfile,writeHome} from '../../../core/profile.ts';
 import {WorldKeyStore,gevEnv} from '../../../core/world-keys.ts';
 import {WatchZones} from '../../../core/watch-zones.ts';
 import {MorningBrief} from '../../../core/morning-brief.ts';
@@ -322,7 +322,7 @@ else {
     mark('core services');
     // Watch zones speak through the interruption engine (quiet hours, focus and ghost mode are respected).
     const watch=new WatchZones(budgetDatabase,worldFeeds,n=>interruptions.raise({source:'system',key:`watch:${n.key}`,text:n.text,importance:n.severity,urgency:n.severity>=.8?1:.6,confidence:1,relevance:.9,expiresAt:Date.now()+3*3600000}),{changed:()=>runtime?.publish()});
-    const actions=new AssistantActions(reminderStore,budgetDatabase,()=>{reminderScheduler?.check();runtime?.publish();},undefined,memoryStore,new WebLookup(),google,projectStore,recall,desktop,new WorkspaceStore(budgetDatabase,projectStore),{modes,ideas,missions,spiral,routines,dailyBrief,jobs:jobScout,network:{spoken:()=>network.spoken(),scan:()=>scanNetwork()},work,inbox,offline:{online:()=>connectivity.online,failed:()=>connectivity.failed()},drills:{run:async()=>{if(!drillsRef)return 'Security drills aren\'t ready yet.';return drillSummary(await drillsRef.run());}},update:{status:()=>updater.status(),apply:()=>applyUpdate(),undo:()=>undoUpdate()},skills,personality,eggs,onFlourish:kind=>{flourish={kind,at:new Date().toISOString()};runtime?.publish();},
+    const actions=new AssistantActions(reminderStore,budgetDatabase,()=>{reminderScheduler?.check();runtime?.publish();},undefined,memoryStore,new WebLookup(),google,projectStore,recall,desktop,new WorkspaceStore(budgetDatabase,projectStore),{home:()=>readProfile(root).home?.place,modes,ideas,missions,spiral,routines,dailyBrief,jobs:jobScout,network:{spoken:()=>network.spoken(),scan:()=>scanNetwork()},work,inbox,offline:{online:()=>connectivity.online,failed:()=>connectivity.failed()},drills:{run:async()=>{if(!drillsRef)return 'Security drills aren\'t ready yet.';return drillSummary(await drillsRef.run());}},update:{status:()=>updater.status(),apply:()=>applyUpdate(),undo:()=>undoUpdate()},skills,personality,eggs,onFlourish:kind=>{flourish={kind,at:new Date().toISOString()};runtime?.publish();},
       diagnostics:()=>[diagnose(conversation.lastTurn,conversation.snapshot().startup,localServer.snapshot().loadMs),(()=>{try{return speedBoard.board().summary;}catch{return '';}})(),(()=>{try{const r=selfCheck?(Date.now()-Date.parse(selfCheck.last?.at??'0')>10*60000?selfCheck.run():selfCheck.last):null;return r?r.summary:'';}catch{return '';}})()].filter(Boolean).join('\n'),guard:guardian,
       world:worldFeeds,watch,metro:new MadisonMetro(join(root,'data','metro')),godsEye:{available:()=>godsEye.installed,open:v=>godsEyeWindow.show(v),close:()=>godsEyeWindow.close(),call:(t,a,sig)=>godsEye.call(t,a,sig),gnss:(lat,lon,sig)=>godsEye.gnss(lat,lon,sig),ambient:on=>godsEyeWindow.setAmbient(on),replay:(stops,layers)=>godsEyeWindow.replay(stops,layers)}});
     const local=new LocalReasoningController(localServer,()=>runtime?.publishLocal(),undefined,512,actions);
@@ -609,6 +609,13 @@ else {
       });
     }
     const chamberSender=(event:Electron.IpcMainInvokeEvent)=>!!window&&trustedSender(event.sender.id,window.webContents.id,event.senderFrame===window.webContents.mainFrame,event.senderFrame?.url??'',documentUrl);
+    ipcMain.handle('harmony:home',(event,...args:unknown[])=>{
+      if(!chamberSender(event)||args.length!==1||!args[0]||typeof args[0]!=='object')throw new Error('Untrusted request');
+      const v=args[0] as {op?:unknown;home?:unknown};
+      if(v.op==='get')return readProfile(root).home??null;
+      if(v.op==='set'&&v.home&&typeof v.home==='object')return writeHome(root,v.home as import('../../../core/profile.ts').OwnerHome);
+      throw new Error('Invalid request');
+    });
     ipcMain.handle('harmony:file-root',(event,...args:unknown[])=>{if(!chamberSender(event))throw new Error('Untrusted sender');validateNoArguments(args);return fileRoot;});
     ipcMain.handle('harmony:forget-file-root',(event,...args:unknown[])=>{if(!chamberSender(event))throw new Error('Untrusted sender');validateNoArguments(args);revokeFiles();});
     ipcMain.handle('harmony:choose-file-root',async(event,...args:unknown[])=>{

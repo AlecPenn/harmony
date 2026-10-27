@@ -66,6 +66,7 @@ export interface Snapshot extends RuntimeState {
   audio: import('./audio.ts').AudioStatus;
 }
 export interface HarmonyBridge {
+  home(request:{op:'get'}|{op:'set';home:import('../../core/profile.ts').OwnerHome}):Promise<import('../../core/profile.ts').OwnerHome|null>;
   allowanceReview(amount:string):Promise<void>;
   allowanceApprove(id:string):Promise<void>;
   allowanceCancel():Promise<void>;

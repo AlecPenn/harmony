@@ -2,6 +2,7 @@ import { contextBridge, ipcRenderer } from 'electron';
 import type { HarmonyBridge, Snapshot } from '../../../packages/contracts/index.ts';
 
 const bridge: HarmonyBridge = {
+  home:request=>ipcRenderer.invoke('harmony:home',request),
   allowanceReview: (amount:string) => ipcRenderer.invoke('harmony:allowance-review',amount),
   allowanceApprove: (id:string) => ipcRenderer.invoke('harmony:allowance-approve',id),
   allowanceCancel: () => ipcRenderer.invoke('harmony:allowance-cancel'),

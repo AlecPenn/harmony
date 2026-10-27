@@ -89,3 +89,14 @@ test('without a web lookup, no web functions are offered',()=>{
  const db=openDatabase(':memory:');dbs.push(db);
  expect(new AssistantActions(new ReminderStore(db),db).tools.map(t=>t.name)).not.toContain('web_search');
 });
+
+test('weather uses a saved home only when no place is specified',async()=>{
+ const db=openDatabase(':memory:');dbs.push(db);
+ const {f,seen}=fake(u=>u.includes('geocoding')?{body:geo}:u.includes('forecast')?{body:forecast}:undefined);
+ const web=new WebLookup(f);
+ const actions=new AssistantActions(new ReminderStore(db),db,()=>{},undefined,null,web,null,null,null,null,null,{home:()=> 'Portland, Oregon'});
+ await actions.run([{name:'get_weather',arguments:{place:''}}],signal());
+ await actions.run([{name:'get_weather',arguments:{place:'Madison'}}],signal());
+ const queries=seen.filter(url=>url.includes('geocoding')).map(url=>new URL(url).searchParams.get('name'));
+ expect(queries).toEqual(['Portland','Madison']);
+});
