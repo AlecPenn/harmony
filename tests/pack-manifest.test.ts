@@ -17,3 +17,13 @@ test('rejects malformed and unknown manifest fields without accepting the pack a
   {...base,type:'voice',content:{engine:'kokoro',model:'voice.onnx'}},{...base,content:{tokens:'tokens.json',script:'run.js'}},
   {...base,type:'plugin'},null])expect(validator.check(input).ok).toBe(false);
 });
+
+test('strict manifest parsing rejects duplicates, invalid UTF-8 and oversized data',()=>{
+ const bytes=(s:string)=>new TextEncoder().encode(s);
+ expect(validator.parse(bytes(JSON.stringify(base))).ok).toBe(true);
+ expect(validator.parse(bytes('{"type":"theme","type":"skin"}')).ok).toBe(false);
+ expect(validator.parse(bytes('{"files":{"x":"a","\\u0078":"b"}}')).ok).toBe(false);
+ expect(validator.parse(bytes('{/*comment*/"x":1}')).ok).toBe(false);
+ expect(validator.parse(new Uint8Array([0xff])).ok).toBe(false);
+ expect(validator.parse(new Uint8Array(65537)).ok).toBe(false);
+});

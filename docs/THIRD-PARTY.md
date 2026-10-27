@@ -15,6 +15,9 @@ Playwright, all MIT (Apache-2.0 for TypeScript and Playwright). Full texts are i
 @cfworker/json-schema (JSON Schema validation), MIT: https://github.com/cfworker/cfworker. Version 4.1.1 was
 checked on GitHub on 2026-10-27. This interpreter does not generate or evaluate code at runtime.
 
+jsonc-parser (strict JSON parsing), MIT: https://github.com/microsoft/node-jsonc-parser. Version 3.3.1 was checked
+on GitHub on 2026-10-27. HARMONY rejects comments and duplicate keys when reading pack manifests.
+
 ## Brain
 
 | Component | Licence |
