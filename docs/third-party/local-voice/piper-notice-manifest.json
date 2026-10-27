@@ -1,0 +1,23 @@
+{
+  "piperVersion": "1.8.0",
+  "pathvalidateVersion": "3.3.1",
+  "modelRevision": "c10ece1aade47bb51c153c893d14e5bf8e5b7117",
+  "notices": [
+    {
+      "file": "piper-COPYING.txt",
+      "sha256": "5f631fae467c82b8cd28fd1ec425c816895a35f9d94e36bee0e0164570e8e0f6"
+    },
+    {
+      "file": "piper-g2pW-LICENSE.txt",
+      "sha256": "8d1f32544c26f4cbfee59ec9d5c273427f68d1af5b56a6dd5864a36846fe2565"
+    },
+    {
+      "file": "pathvalidate-LICENSE.txt",
+      "sha256": "130a35b917df1951aefbf366120491d5124045a87ded123f20ded21521f4e3a2"
+    },
+    {
+      "file": "piper-alba-MODEL_CARD.txt",
+      "sha256": "fa166b1779404c470b0b6b4ba0238bc4a35bf89d2cd130c6788f697188b737d6"
+    }
+  ]
+}

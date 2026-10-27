@@ -1,0 +1,14 @@
+{
+ "name": "God's Eye View",
+ "repo": "https://github.com/bilawalsidhu/gods-eye-view",
+ "license": "MIT",
+ "commit": "301bc2e0b301600d1bd57c9ab89cdf1e181a304c",
+ "committed": "2026-10-26T16:03:04Z",
+ "archive": "https://codeload.github.com/bilawalsidhu/gods-eye-view/zip/301bc2e0b301600d1bd57c9ab89cdf1e181a304c",
+ "archiveBytes": 88635886,
+ "archiveSha256": "412f582745cc26db92e42dfb7b904fd178ff9313b8ffbeb247211d9bb55718e3",
+ "folder": ".runtime/gods-eye-view",
+ "node": ">=24.14.0",
+ "port": 4173,
+ "note": "Installed only by scripts/setup-gods-eye.mjs. Dependencies come from its package-lock.json (npm ci checks every package's integrity hash). HARMONY starts it on 127.0.0.1 only. To move to a newer version, update commit, archive, archiveBytes and archiveSha256 together after checking it. HARMONY's own changes are laid on top from overlays/gods-eye (core/gods-eye-overlay.ts) and must be remade for a new commit."
+}

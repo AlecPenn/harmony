@@ -1,0 +1,31 @@
+{
+  "provider": "piper",
+  "preparationStages": [
+    {
+      "stage": "model",
+      "elapsedMs": 0
+    },
+    {
+      "stage": "warmup",
+      "elapsedMs": 12689
+    },
+    {
+      "stage": "ready",
+      "elapsedMs": 15978
+    }
+  ],
+  "locale": "en-GB",
+  "muted": true,
+  "microphoneUsed": false,
+  "firstPcmMs": 292,
+  "playbackReportedMs": 583,
+  "fullPreviewMs": 10430.71,
+  "chunks": 101,
+  "maxScheduledGapMs": 0,
+  "lookaheadFrames": 60,
+  "processingVisualBudget": true,
+  "preparationMs": 16902,
+  "preparedBeforePlayback": true,
+  "sentenceFraming": true,
+  "acousticMeasurement": false
+}

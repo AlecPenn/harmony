@@ -1,0 +1,19 @@
+# Local speech pipeline · Phase 5
+
+Implemented: opt-in local microphone test in Settings; mono 16 kHz AudioContext with echo cancellation, noise suppression and automatic gain control requested from Chromium; AudioWorklet emits 512-sample PCM chunks. At most eight unacknowledged chunks may be in capture transit. Backpressure failure stops capture instead of accumulating delayed speech. Actual acoustic echo performance is not verified by a synthetic test.
+
+The exact trusted desktop main frame must request an explicit temporary audio grant. Camera, screen and unarmed audio remain denied. IPC validates session, sequence, type and fixed frame size. AudioWorklet is a separate local file compatible with the existing CSP, not an inline/data script. No network permission was added. STOP, reload, renderer loss, track loss, overflow and worker failure cancel capture. Models unload on STOP, failed startup, an unused grant or stalled transport.
+
+A private Python worker runs Silero ONNX VAD on CPU and Faster Whisper base.en int8 on a separate inference thread. VAD uses 32 ms frames, six-frame preroll, and 320 ms silence endpointing; segments are capped near 10 seconds. Provisional transcripts are requested about once a second while speech continues, with a final request at the endpoint. Whisper itself decodes bounded windows: this is incremental windowed transcription, not a natively streaming decoder. Accuracy/latency must be benchmarked on the household's voices before deployment. Partial transcripts may change and never dispatch commands.
+
+Buffers, one active inference and a two-job queue are bounded; overflow of final requests fails closed. No audio recording or transcript is written to the journal. Latest transcript exists only in transient worker/renderer memory and is cleared when stopped. This diagnostic intentionally does not grant speaker identity or start an assistant conversation. Wake word, household verification and Australian female speech output are later phases.
+
+## Dependencies and attribution
+
+Python 3.13 environment: `.venv`; exact tested packages are in `workers/speech/requirements.lock.txt`. PyAV is pinned to 16.1.0 because version 19 removed a decoding argument used by Faster Whisper 1.2.1. Model source revisions, sizes and SHA-256 hashes are in `SPEECH-MODELS.json`; weights are excluded from Git under data/models. `scripts/setup-speech.py` explicitly downloads models. Runtime checks hashes and uses local_files_only/offline settings; it never downloads models automatically.
+
+Silero tensor/context handling is adapted from [the upstream wrapper](https://github.com/snakers4/silero-vad/blob/1e261b036686cd0017d500ee96acd1c4ba572a9d/src/silero_vad/utils_vad.py). It was inspected and reduced to a NumPy/ONNX CPU adapter, without importing its Torch/audio loaders. MIT notice retained in docs/licenses/Silero-VAD-MIT.txt. [Faster Whisper](https://github.com/SYSTRAN/faster-whisper) is a package dependency; [base.en conversion](https://huggingface.co/Systran/faster-whisper-base.en) is pinned and the upstream Whisper MIT notice is retained. No JARVIS audio code was copied; the donor audit informed cancellation and ownership boundaries.
+
+## Verification
+
+Automated checks cover input permissions/shape, the real worker's readiness/PCM acknowledgements/shutdown, Silero silence, partial requests before endpoint, long-speech bounds and worklet backpressure. Electron uses a synthetic media device, never the physical microphone, to check permission denial before start, camera denial, actual capture chunks, STOP track disposal and reload with microphone off. A Windows-generated speech fixture (not the user's voice; no speaker playback) was transcribed correctly offline: “Harmony, check the local system. This is a test of local speech recognition.” This verifies recognition on one synthetic sample, not household accuracy or an Australian female output voice.

@@ -1,0 +1,35 @@
+{
+  "provider": "kokoro",
+  "preparationStages": [
+    {
+      "stage": "model",
+      "elapsedMs": 0
+    },
+    {
+      "stage": "acknowledgements",
+      "elapsedMs": 25878
+    },
+    {
+      "stage": "warmup",
+      "elapsedMs": 37210
+    },
+    {
+      "stage": "ready",
+      "elapsedMs": 37210
+    }
+  ],
+  "locale": "en-GB",
+  "muted": true,
+  "microphoneUsed": false,
+  "firstPcmMs": 4201,
+  "playbackReportedMs": 4235,
+  "fullPreviewMs": 26178.91,
+  "chunks": 131,
+  "maxScheduledGapMs": 4313,
+  "lookaheadFrames": 60,
+  "processingVisualBudget": true,
+  "preparationMs": 37693,
+  "preparedBeforePlayback": true,
+  "sentenceFraming": true,
+  "acousticMeasurement": false
+}

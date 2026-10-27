@@ -1,0 +1,16 @@
+/*
+ * HARMONY Lite mode (after kuxala/gods-eye-view's "no backdrop blur" change, MIT): every blurred panel over the
+ * WebGL canvas is re-blurred on each composite and every looping animation forces a composite at display refresh;
+ * together they kept the GPU busy with a parked globe. Only applies with html.harmony-lite. Glass panels get a
+ * denser fill to stay legible without the blur. One-shot transitions stay.
+ */
+html.harmony-lite {
+  --glass-bg: rgba(12, 12, 20, 0.9);
+}
+html.harmony-lite *,
+html.harmony-lite *::before,
+html.harmony-lite *::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  animation-iteration-count: 1 !important;
+}

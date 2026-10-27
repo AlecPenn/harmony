@@ -1,0 +1,8 @@
+import { defineConfig } from '@playwright/test';
+export default defineConfig({
+  testDir: './apps/desktop/tests',
+  workers: 1,
+  timeout: 30000,
+  reporter: 'list',
+  use: { trace: 'retain-on-failure' }
+});

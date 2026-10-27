@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "title": "Austin memory walk · illustrative example",
+  "description": "Synthetic positions demonstrate timeline playback. Replace this example with your own measured track and media.",
+  "samples": [
+    {
+      "time": "2026-10-01T12:00:00Z",
+      "lat": 30.273,
+      "lon": -97.741,
+      "altitudeM": 180
+    },
+    {
+      "time": "2026-10-01T12:00:20Z",
+      "lat": 30.274,
+      "lon": -97.7405,
+      "altitudeM": 180
+    },
+    {
+      "time": "2026-10-01T12:00:40Z",
+      "lat": 30.275,
+      "lon": -97.7402,
+      "altitudeM": 181
+    },
+    {
+      "time": "2026-10-01T12:01:00Z",
+      "lat": 30.276,
+      "lon": -97.7401,
+      "altitudeM": 181
+    }
+  ],
+  "observations": [
+    {
+      "id": "start",
+      "title": "First observation",
+      "time": "2026-10-01T12:00:00Z",
+      "lat": 30.273,
+      "lon": -97.741,
+      "note": "This is a synthetic example. Add a local photo or video filename to the manifest to attach your own media."
+    },
+    {
+      "id": "end",
+      "title": "A later moment in the same place",
+      "time": "2026-10-01T12:01:00Z",
+      "lat": 30.276,
+      "lon": -97.7401,
+      "note": "Choose All moments to compare observations, or Elapsed history to reveal them over time."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "provider": "piper-tts-1.8.0",
+  "voice": "en_GB-alba-medium",
+  "locale": "en-GB",
+  "sampleRate": 22050,
+  "device": "cpu",
+  "threads": 2,
+  "startupAndWarmupMs": 12016.95,
+  "audioPlayed": false,
+  "microphoneUsed": false,
+  "phrases": [
+    {
+      "text": "On it.",
+      "firstAudioMs": 79.14,
+      "completeMs": 79.16,
+      "audioSeconds": 0.569,
+      "chunks": 1
+    },
+    {
+      "text": "Hi, I'm Harmony.",
+      "firstAudioMs": 167.78,
+      "completeMs": 167.8,
+      "audioSeconds": 1.312,
+      "chunks": 1
+    },
+    {
+      "text": "Hi, I'm Harmony. This is a British female voice for local testing.",
+      "firstAudioMs": 146.94,
+      "completeMs": 492.36,
+      "audioSeconds": 4.017,
+      "chunks": 2
+    },
+    {
+      "text": "One thing at a time. We have got this.",
+      "firstAudioMs": 193.27,
+      "completeMs": 335.74,
+      "audioSeconds": 2.833,
+      "chunks": 2
+    }
+  ]
+}

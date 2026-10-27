@@ -1,0 +1,45 @@
+{
+  "name": "harmony-personal-intelligence",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "scripts/boot.cjs",
+  "engines": {
+    "node": ">=24.14.0 <25"
+  },
+  "scripts": {
+    "harmony:health": "node scripts/health.ts",
+    "local:benchmark": "node scripts/benchmark-local-model.ts",
+    "local:tools-check": "node scripts/check-local-tools.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/launch.mjs",
+    "test:desktop": "playwright test",
+    "preview": "vite preview --host 127.0.0.1",
+    "web:check": "node scripts/check-web.ts",
+    "memory:check": "node scripts/check-memory-search.ts",
+    "desktop:check": "node scripts/check-desktop.ts",
+    "godseye:check": "node scripts/check-gods-eye.ts"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.8.1",
+    "framer-motion": "^14.1.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "three": "^0.186.1",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "electron": "^44.7.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.3"
+  }
+}

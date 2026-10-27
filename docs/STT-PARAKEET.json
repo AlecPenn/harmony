@@ -1,0 +1,10 @@
+{
+ "description": "NVIDIA Parakeet TDT 0.6B v2 (English), int8 ONNX export by istupakov, used through onnx-asr 0.12.0 (MIT). Model license CC-BY-4.0. Files pinned by size and SHA-256 as downloaded on Alec's PC on October 18, 2026 from huggingface.co/istupakov/parakeet-tdt-0.6b-v2-onnx (the export does not record a revision in the download).",
+ "attribution": "Parakeet TDT 0.6B v2 by NVIDIA, licensed CC-BY-4.0; ONNX conversion by istupakov.",
+ "files": [
+  {"path": "data/models/stt-candidates/parakeet-tdt-0.6b-v2/config.json", "bytes": 97, "sha256": "666903c76b9798caf2c210afd4f6cd60b08a8dbf9800ec8d7a3bc0d2148ac466"},
+  {"path": "data/models/stt-candidates/parakeet-tdt-0.6b-v2/decoder_joint-model.int8.onnx", "bytes": 8998286, "sha256": "a449f49acd68979d418651dd2dcb737cc0f1bf0225e009e29ee326354edbf7d3"},
+  {"path": "data/models/stt-candidates/parakeet-tdt-0.6b-v2/encoder-model.int8.onnx", "bytes": 652184014, "sha256": "3e0581fda6ab843888b51e56d7ee78b6d5bc3237ec113af1f732d1d5286aa155"},
+  {"path": "data/models/stt-candidates/parakeet-tdt-0.6b-v2/vocab.txt", "bytes": 9384, "sha256": "ec182b70dd42113aff6c5372c75cac58c952443eb22322f57bbd7f53977d497d"}
+ ]
+}

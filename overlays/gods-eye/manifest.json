@@ -1,0 +1,116 @@
+{
+ "version": 1,
+ "commit": "301bc2e0b301600d1bd57c9ab89cdf1e181a304c",
+ "files": [
+  {
+   "path": "public/spatial-memory-example.json",
+   "base": null,
+   "sha256": "3ee92546ecc753eac284a831c0b873e26ce9c3e6fb3fbfb8e136c137bc7e365f"
+  },
+  {
+   "path": "server/providers/cctv/catalog.js",
+   "base": "773e57387ac9cb8011dd8cba17d5a9876d83673d6c44702b4432a7f64cde303c",
+   "sha256": "a716d4e022916ae06225889a53fe0de89d13da7483d2e72b60c3d2da3bab2756"
+  },
+  {
+   "path": "server/providers/cctv/harmonyPacks.js",
+   "base": null,
+   "sha256": "f8a8a71120704f33ef8f23325cee254cf3b9fe0c4bb5a6dc0c7e896f6e9d78e9"
+  },
+  {
+   "path": "server/providers/cctv/harmonyPacks.test.mjs",
+   "base": null,
+   "sha256": "c89092bd49a9f9f75fc7c879b96fc96234fa2b6b76c8ed81e3f24de820e4df05"
+  },
+  {
+   "path": "src/annotations/worldAnnotationRenderer.js",
+   "base": "e78ccd76db1eba7a1354de9fcf6bb0c0eaa9ae64365cc048b55c37787dd551fc",
+   "sha256": "7bbdbcd102ae048a6e0fcbc187af76b919e60ff394c23de3658d2343d95f0242"
+  },
+  {
+   "path": "src/app/scene.js",
+   "base": "8efa1e5e3ab163ffa698a21be798a49203b10931a1fadc5221bcec268cbd8aab",
+   "sha256": "f02bd5f1faa9fdf5412d81a03b4e12b801cc134b75c1d56587f94e604dad4e85"
+  },
+  {
+   "path": "src/app/tools.js",
+   "base": "f87b59cad47cca4882d2ad01b7ddd5de3f33f72693917a14bb35bfc6cd2641c1",
+   "sha256": "403dd33a73652b4423f6e7346aae883f7382f6d33aa18874461b4146f2c512dc"
+  },
+  {
+   "path": "src/app/viewer.js",
+   "base": "357211cfc9d4da699e0abea846378d8b221c013a7397bdbb7c968a4a1bf49ded",
+   "sha256": "fcfe354a07e75f1bf05256d00349e76842824d9e00659873cd20b3d757c60048"
+  },
+  {
+   "path": "src/data/dataCredits.js",
+   "base": "619722835e89d311ebd2cc79612457238e35cb365466ba8f15f88d7d8d3c3ecd",
+   "sha256": "59e372b91c04a3e5187f4d1f71125f8c8e772c802dc64a84d038af830f39e165"
+  },
+  {
+   "path": "src/data/localGeojsonCore.js",
+   "base": "161dad48c19b01cc5859f673f975f78740b40963fd52cd2aba9bef8091115c9e",
+   "sha256": "19b1904b75b31a76e7b03eb2b03dfa4044fbce2626b3705ed689f09469b78722"
+  },
+  {
+   "path": "src/harmonyLite.js",
+   "base": null,
+   "sha256": "aaf6c523d831656fb21f267b3fee7f7b2426bd919f24340e0e65ef17cce02081"
+  },
+  {
+   "path": "src/layers/flights/rendering.js",
+   "base": "52895b63ed7a13fbcd447dfd11cb61f27f2da481f76fe286003e9536f04b4d55",
+   "sha256": "44c59c4d6433bbb08561d55b6bd6e586b8c842eb63b829d6b0a566f4734cce3d"
+  },
+  {
+   "path": "src/layers/flights/state.js",
+   "base": "33ac19d56043125c4ef5b83e2ea51e272ba6c082063ce3618dba338855769382",
+   "sha256": "045dc6570dd4eaf1fd1542877b9858118e5f36be99cf06a1f0518021a2e66a6d"
+  },
+  {
+   "path": "src/layers/submarineCables/ingestion.js",
+   "base": "b55f9aa8e95bda24c953088d7e6205ef5f4016370bc531a77dc43b953d74d826",
+   "sha256": "4b64c8c6e01dab8214618cc9238cff9ce0a3d04a98455a2f318edbd4021f4639"
+  },
+  {
+   "path": "src/ui/panelLayoutController.js",
+   "base": "373a3ee51d94b1b1725cc2fc2f0b4ba0d923fff53895f857696ffccf87a538b6",
+   "sha256": "8dbf09b7051f245eef3ca2a48de0922a6baf0951e32633a3e185b8118a84db3e"
+  },
+  {
+   "path": "src/ui/spatialMemory.js",
+   "base": null,
+   "sha256": "e35888ef37307e03ca5e8d5051dc2f7abac22fded1bce50cbb2a6e34eca3e814"
+  },
+  {
+   "path": "src/ui/spatialMemoryModel.js",
+   "base": null,
+   "sha256": "52e797699326be606636f9466efa447d3bff0f7267a6dccd8560ef1603887308"
+  },
+  {
+   "path": "src/ui/styles/harmony-lite.css",
+   "base": null,
+   "sha256": "2b4b5822e92706dbc2749bc6854c5e6b2cf18940f7e92cde774c19e0092b0dd6"
+  },
+  {
+   "path": "src/ui/styles/harmony.css",
+   "base": null,
+   "sha256": "e0be45ebb503954e88dd401c00196586900267f560bc3d4056e6c5c2908d5f68"
+  },
+  {
+   "path": "src/ui/styles/spatial-memory.css",
+   "base": null,
+   "sha256": "3f652224532a7578412ddd9b2c9b66496f2bc96766fb2910e12f5979e47993fd"
+  },
+  {
+   "path": "src/ui/templates/layer-panels.html",
+   "base": "186b3b32cc781d272bb76954af9037d2c1927355df67ffabf80b00bfd6a4e9ec",
+   "sha256": "48fa9778652824bee2360da466cb99c6323d58e09ab53e454ab58b163f98d550"
+  },
+  {
+   "path": "style.css",
+   "base": "58124b22d5ccace7fdd2377a3349dda6564d1d036fa0d78c665d79bce744e06e",
+   "sha256": "ebe6ea2a92171426e9a80ebe4bb1b0ea826308e09c2c96dbec0136c8d4d713e3"
+  }
+ ]
+}

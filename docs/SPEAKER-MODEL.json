@@ -1,0 +1,14 @@
+{
+  "model": "WeSpeaker English VoxCeleb ResNet34 LM, sherpa-onnx conversion",
+  "path": "data/models/speaker/wespeaker_en_voxceleb_resnet34_LM.onnx",
+  "bytes": 26530550,
+  "sha256": "e9848563da86f263117134dfd7ad63c92355b37de492b55e325400c9d9c39012",
+  "source": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/wespeaker_en_voxceleb_resnet34_LM.onnx",
+  "original_model_card": "https://huggingface.co/Wespeaker/wespeaker-voxceleb-resnet34-LM/tree/f0c48c298fd835726c27956a5d617bad7115627e",
+  "model_license": "CC-BY-4.0",
+  "attribution": "WeSpeaker authors; trained on VoxCeleb2 Dev; converted/distributed by k2-fsa sherpa-onnx contributors. HARMONY does not modify these model bytes.",
+  "runtime_license": "Apache-2.0",
+  "runtime": "sherpa-onnx==1.13.8; sherpa-onnx-core==1.13.8",
+  "device": "CPU, 2 threads; lazy loading; 256-dimensional normalized embedding",
+  "status": "fixture evaluation only, not enabled for live identity"
+}

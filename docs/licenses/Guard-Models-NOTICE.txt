@@ -1,0 +1,12 @@
+HARMONY guard (security) models. HARMONY does not modify these files; they are downloaded by scripts/setup-guard.py
+from the pinned sources in docs/GUARD-MODELS.json and checked by size and SHA-256.
+
+YuNet face detector (face_detection_yunet_2023mar.onnx) - OpenCV Zoo - MIT License.
+  https://github.com/opencv/opencv_zoo/tree/main/models/face_detection_yunet
+SFace face recognizer (face_recognition_sface_2021dec.onnx) - OpenCV Zoo - Apache License 2.0.
+  https://github.com/opencv/opencv_zoo/tree/main/models/face_recognition_sface
+MiniFASNetV2-SE anti-spoofing, quantized (best_model_quantized.onnx) - suriAI/face-antispoof-onnx, commit 2f8dd93 -
+  Apache License 2.0; based on Minivision AI Silent-Face-Anti-Spoofing (Apache License 2.0).
+  https://github.com/suriAI/face-antispoof-onnx
+OpenCV (opencv-python-headless 5.0.0.93) - Apache License 2.0. https://github.com/opencv/opencv-python
+Voice: WeSpeaker ResNet34-LM - see WeSpeaker-CC-BY-4.0.txt and Sherpa-ONNX-Apache-2.0.txt.

@@ -1,0 +1,44 @@
+[
+  {
+    "threads": 1,
+    "text": "On it.",
+    "audio_ready_ms": 2439.03,
+    "audio_seconds": 1.003,
+    "model_and_warmup_ms": 8176.33
+  },
+  {
+    "threads": 1,
+    "text": "One thing at a time. We have got this.",
+    "audio_ready_ms": 6088.4,
+    "audio_seconds": 2.027,
+    "model_and_warmup_ms": 8176.33
+  },
+  {
+    "threads": 2,
+    "text": "On it.",
+    "audio_ready_ms": 1331.02,
+    "audio_seconds": 1.003,
+    "model_and_warmup_ms": 5455.95
+  },
+  {
+    "threads": 2,
+    "text": "One thing at a time. We have got this.",
+    "audio_ready_ms": 3351.7,
+    "audio_seconds": 2.027,
+    "model_and_warmup_ms": 5455.95
+  },
+  {
+    "threads": 4,
+    "text": "On it.",
+    "audio_ready_ms": 2080.94,
+    "audio_seconds": 1.003,
+    "model_and_warmup_ms": 6554.43
+  },
+  {
+    "threads": 4,
+    "text": "One thing at a time. We have got this.",
+    "audio_ready_ms": 4304.52,
+    "audio_seconds": 2.027,
+    "model_and_warmup_ms": 6554.43
+  }
+]

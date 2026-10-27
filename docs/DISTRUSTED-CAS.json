@@ -1,0 +1,7 @@
+{
+ "note": "Certificate authorities HARMONY refuses to trust, whatever Windows, Node or Chromium say. A certificate chain is rejected if any certificate in it has a subject or issuer that matches one of the patterns (case-insensitive). Add an entry when a CA is reported compromised; remove it only after the browser vendors have dealt with it.",
+ "entries": [
+  {"pattern": "eMudhra", "added": "2026-10-22", "reason": "Reported compromise of an eMudhra intermediate CA private key (October 21, 2026). Anyone holding it could forge HTTPS certificates."},
+  {"pattern": "emSign", "added": "2026-10-22", "reason": "eMudhra's emSign PKI roots and intermediates (same incident)."}
+ ]
+}

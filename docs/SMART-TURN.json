@@ -1,0 +1,13 @@
+{
+  "model": "pipecat-ai/smart-turn-v3 (v3.2, full precision)",
+  "license": "BSD-2-Clause",
+  "note": "The full-precision file (named -gpu upstream) runs on the CPU here: 136 ms on Alec's PC with 2 threads, against 182 ms for the 8-bit -cpu file.",
+  "files": [
+    {
+      "path": "data/models/smart-turn/smart-turn-v3.2-gpu.onnx",
+      "bytes": 32411198,
+      "sha256": "ab8dc64b88713f90b571c15b714bd1330e6c883cad8763dacf65c9376dc539be",
+      "source": "https://huggingface.co/pipecat-ai/smart-turn-v3/resolve/main/smart-turn-v3.2-gpu.onnx"
+    }
+  ]
+}

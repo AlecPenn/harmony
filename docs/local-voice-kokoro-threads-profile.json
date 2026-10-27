@@ -1,0 +1,71 @@
+{
+  "provider": "kokoro",
+  "voice": "bf_emma",
+  "locale": "en-GB",
+  "device": "cpu",
+  "loading_ms": 22248.77,
+  "samples": [
+    {
+      "threads": 2,
+      "first_pcm_ms": 4706.58,
+      "complete_ms": 4706.69,
+      "audio_seconds": 2.925
+    },
+    {
+      "threads": 3,
+      "first_pcm_ms": 4152.61,
+      "complete_ms": 4152.72,
+      "audio_seconds": 2.925
+    },
+    {
+      "threads": 4,
+      "first_pcm_ms": 5465.35,
+      "complete_ms": 5465.46,
+      "audio_seconds": 2.925
+    },
+    {
+      "threads": 4,
+      "first_pcm_ms": 5833.33,
+      "complete_ms": 5833.43,
+      "audio_seconds": 2.925
+    },
+    {
+      "threads": 3,
+      "first_pcm_ms": 4071.52,
+      "complete_ms": 4071.63,
+      "audio_seconds": 2.925
+    },
+    {
+      "threads": 2,
+      "first_pcm_ms": 4890.18,
+      "complete_ms": 4890.4,
+      "audio_seconds": 2.925
+    },
+    {
+      "threads": 2,
+      "first_pcm_ms": 4658.07,
+      "complete_ms": 4658.18,
+      "audio_seconds": 2.925
+    },
+    {
+      "threads": 3,
+      "first_pcm_ms": 4156.69,
+      "complete_ms": 4156.79,
+      "audio_seconds": 2.925
+    },
+    {
+      "threads": 4,
+      "first_pcm_ms": 5486.1,
+      "complete_ms": 5486.22,
+      "audio_seconds": 2.925
+    }
+  ],
+  "median_first_pcm_ms": {
+    "2": 4706.58,
+    "3": 4152.61,
+    "4": 5486.1
+  },
+  "microphone_used": false,
+  "audio_played": false,
+  "production_threads_changed": false
+}

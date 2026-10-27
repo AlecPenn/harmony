@@ -1,0 +1,3 @@
+/* HARMONY's additions (overlays/gods-eye): Spatial Memory and Lite mode. One import keeps style.css a short shim. */
+@import './spatial-memory.css';
+@import './harmony-lite.css';

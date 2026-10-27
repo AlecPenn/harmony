@@ -1,0 +1,27 @@
+{
+  "provider": "kokoro-0.9.4",
+  "voice": "bf_emma",
+  "locale": "en-GB",
+  "device": "cpu",
+  "threads": 2,
+  "startup_ms": 27189.05,
+  "worker_warmup_ms": 27039,
+  "phrases": [
+    {
+      "request": 0,
+      "first_audio_ms": 5826.26,
+      "complete_ms": 5832.34,
+      "audio_seconds": 4.225,
+      "chunks": 43
+    },
+    {
+      "request": 1,
+      "first_audio_ms": 4225.64,
+      "complete_ms": 4229.37,
+      "audio_seconds": 2.825,
+      "chunks": 29
+    }
+  ],
+  "audio_played": false,
+  "microphone_used": false
+}

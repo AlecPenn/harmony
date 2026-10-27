@@ -1,0 +1,14 @@
+[
+  {
+    "runtime": "onnxruntime-directml",
+    "version": "1.24.4",
+    "file": "directml-LICENSE.txt",
+    "sha256": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674"
+  },
+  {
+    "runtime": "onnxruntime-directml",
+    "version": "1.24.4",
+    "file": "directml-ThirdPartyNotices.txt.txt",
+    "sha256": "fb0af774b4d7cffc5b9d046f2aaeade2f37df2f80abf8033c95dfffcc77a8866"
+  }
+]

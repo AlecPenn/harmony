@@ -1,0 +1,35 @@
+{
+  "provider": "kokoro-0.9.4",
+  "voice": "bf_emma",
+  "locale": "en-GB",
+  "device": "cpu",
+  "threads": 2,
+  "startup_ms": 32548.34,
+  "worker_warmup_ms": 32397,
+  "phrases": [
+    {
+      "request": 0,
+      "first_audio_ms": 5650.7,
+      "complete_ms": 5656.29,
+      "audio_seconds": 4.225,
+      "chunks": 43
+    },
+    {
+      "request": 1,
+      "first_audio_ms": 3870.56,
+      "complete_ms": 3874.3,
+      "audio_seconds": 2.825,
+      "chunks": 29
+    },
+    {
+      "request": 2,
+      "first_audio_ms": 0.31,
+      "complete_ms": 1.72,
+      "audio_seconds": 1.125,
+      "chunks": 12
+    }
+  ],
+  "audio_played": false,
+  "microphone_used": false,
+  "generic_acknowledgements_cached": true
+}

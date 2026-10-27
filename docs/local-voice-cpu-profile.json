@@ -1,0 +1,30 @@
+[
+  {
+    "threads": 2,
+    "text": "On it.",
+    "first_audio_ms": 1631.3,
+    "complete_ms": 1631.37,
+    "audio_seconds": 1.125
+  },
+  {
+    "threads": 2,
+    "text": "One thing at a time. We have got this.",
+    "first_audio_ms": 3882.0,
+    "complete_ms": 3882.11,
+    "audio_seconds": 2.825
+  },
+  {
+    "threads": 4,
+    "text": "On it.",
+    "first_audio_ms": 1799.26,
+    "complete_ms": 1799.35,
+    "audio_seconds": 1.125
+  },
+  {
+    "threads": 4,
+    "text": "One thing at a time. We have got this.",
+    "first_audio_ms": 4132.83,
+    "complete_ms": 4132.93,
+    "audio_seconds": 2.825
+  }
+]

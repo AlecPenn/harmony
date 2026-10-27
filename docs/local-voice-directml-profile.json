@@ -1,0 +1,19 @@
+{
+  "runtime": "1.24.4",
+  "requestedProvider": "DmlExecutionProvider",
+  "cpuFallbackAllowed": true,
+  "gpuFreeMiBBefore": 3377,
+  "model": "quantized",
+  "voice": "bf_emma",
+  "locale": "en-GB",
+  "audioPlayed": false,
+  "microphoneUsed": false,
+  "phrases": [],
+  "sessionProviders": [
+    "DmlExecutionProvider",
+    "CPUExecutionProvider"
+  ],
+  "loadMs": 6729.23,
+  "outcome": "failed",
+  "errorType": "RuntimeException"
+}

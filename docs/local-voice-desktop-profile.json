@@ -1,0 +1,13 @@
+{
+  "provider": "kokoro",
+  "locale": "en-GB",
+  "muted": true,
+  "microphoneUsed": false,
+  "firstPcmMs": 48658,
+  "playbackReportedMs": 48692,
+  "fullPreviewMs": 63914.75,
+  "chunks": 112,
+  "maxScheduledGapMs": 2736.67,
+  "lookaheadFrames": 60,
+  "acousticMeasurement": false
+}

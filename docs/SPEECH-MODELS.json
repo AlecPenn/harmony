@@ -1,0 +1,36 @@
+{
+  "silero_revision": "1e261b036686cd0017d500ee96acd1c4ba572a9d",
+  "whisper_revision": "3d3d5dee26484f91867d81cb899cfcf72b96be6c",
+  "files": [
+    {
+      "path": "data/models/silero_vad.onnx",
+      "sha256": "1a153a22f4509e292a94e67d6f9b85e8deb25b4988682b7e174c65279d8788e3",
+      "bytes": 2327524,
+      "source": "https://raw.githubusercontent.com/snakers4/silero-vad/1e261b036686cd0017d500ee96acd1c4ba572a9d/src/silero_vad/data/silero_vad.onnx"
+    },
+    {
+      "path": "data/models/whisper-base.en/config.json",
+      "sha256": "f3bc3821e9fc76a27bae538e11ae5b677dcdd352b4600429ce7951d398569aeb",
+      "bytes": 2227,
+      "source": "https://huggingface.co/Systran/faster-whisper-base.en/resolve/3d3d5dee26484f91867d81cb899cfcf72b96be6c/config.json"
+    },
+    {
+      "path": "data/models/whisper-base.en/model.bin",
+      "sha256": "2a166925539a16005f14ff328359f9b9adb9dc4fb631bb3b227526862e93e2ef",
+      "bytes": 145216508,
+      "source": "https://huggingface.co/Systran/faster-whisper-base.en/resolve/3d3d5dee26484f91867d81cb899cfcf72b96be6c/model.bin"
+    },
+    {
+      "path": "data/models/whisper-base.en/tokenizer.json",
+      "sha256": "929c5252409436dce1b38a75d1abbcb5e132d170d8e324e4e04ed915fa2d22df",
+      "bytes": 2128466,
+      "source": "https://huggingface.co/Systran/faster-whisper-base.en/resolve/3d3d5dee26484f91867d81cb899cfcf72b96be6c/tokenizer.json"
+    },
+    {
+      "path": "data/models/whisper-base.en/vocabulary.txt",
+      "sha256": "ff77588746d3a2595d32ab5b69ffd7b95ce2441ac57533cb66fc3eb575a115cf",
+      "bytes": 422309,
+      "source": "https://huggingface.co/Systran/faster-whisper-base.en/resolve/3d3d5dee26484f91867d81cb899cfcf72b96be6c/vocabulary.txt"
+    }
+  ]
+}
