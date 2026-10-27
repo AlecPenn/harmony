@@ -72,6 +72,7 @@ data/packs/
 | `capabilities` | What it needs (WebGL2, GPU tier) so the loader can refuse gracefully |
 
 - [ ] JSON Schema for `pack.json` in `docs/pack.schema.json`, plus validation in core
+  - 2026-10-27: Draft schema and `docs/PACKS.md` written; core validation and type-specific payload formats remain unimplemented.
 - [ ] Loader: verify every checksum; mismatch → refuse and name the file
 - [ ] Loader: declarative only — reject any pack containing executable code (see AGENTS.md)
 - [ ] Fail soft: a broken pack logs why and falls back to the default; never crashes the app

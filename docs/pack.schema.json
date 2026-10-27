@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/AlecPenn/harmony/blob/main/docs/pack.schema.json",
+  "title": "HARMONY pack manifest (draft)",
+  "description": "Draft format; the loader and type-specific validation are not implemented yet.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["formatVersion", "id", "name", "version", "type", "author", "homepage", "license", "attribution", "harmonyVersion", "files", "capabilities", "content"],
+  "properties": {
+    "formatVersion": { "const": 1 },
+    "id": { "type": "string", "maxLength": 128, "pattern": "^[a-z][a-z0-9-]*(\\.[a-z][a-z0-9-]*)+$" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "\\S" },
+    "version": { "$ref": "#/$defs/version" },
+    "type": { "enum": ["skin", "voice", "theme", "sounds"] },
+    "author": { "type": "string", "minLength": 1, "maxLength": 160, "pattern": "\\S" },
+    "homepage": { "type": "string", "maxLength": 2048, "pattern": "^https://[^\\s]+$" },
+    "license": { "type": "string", "minLength": 1, "maxLength": 200, "pattern": "\\S" },
+    "attribution": { "type": "string", "minLength": 1, "maxLength": 2000, "pattern": "\\S" },
+    "harmonyVersion": { "$ref": "#/$defs/version" },
+    "files": {
+      "type": "object", "minProperties": 1, "maxProperties": 256,
+      "propertyNames": { "$ref": "#/$defs/path" },
+      "additionalProperties": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+    },
+    "capabilities": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "webgl2": { "type": "boolean" },
+        "minGpuVramMiB": { "type": "integer", "minimum": 0, "maximum": 65536 }
+      }
+    },
+    "content": { "type": "object" }
+  },
+  "allOf": [
+    { "if": { "properties": { "type": { "const": "skin" } }, "required": ["type"] }, "then": { "properties": { "content": { "$ref": "#/$defs/skin" } } } },
+    { "if": { "properties": { "type": { "const": "voice" } }, "required": ["type"] }, "then": { "properties": { "content": { "$ref": "#/$defs/voice" } } } },
+    { "if": { "properties": { "type": { "const": "theme" } }, "required": ["type"] }, "then": { "properties": { "content": { "$ref": "#/$defs/theme" } } } },
+    { "if": { "properties": { "type": { "const": "sounds" } }, "required": ["type"] }, "then": { "properties": { "content": { "$ref": "#/$defs/sounds" } } } }
+  ],
+  "$defs": {
+    "version": { "type": "string", "maxLength": 80, "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?(\\+[0-9A-Za-z.-]+)?$" },
+    "path": { "type": "string", "maxLength": 240, "pattern": "^[A-Za-z0-9_-][A-Za-z0-9._-]*(/[A-Za-z0-9_-][A-Za-z0-9._-]*)*$" },
+    "skin": {
+      "type": "object", "additionalProperties": false, "required": ["model", "moods", "fallback"],
+      "properties": { "model": { "$ref": "#/$defs/path" }, "moods": { "$ref": "#/$defs/path" }, "fallback": { "$ref": "#/$defs/path" }, "shader": { "$ref": "#/$defs/path" }, "preview": { "$ref": "#/$defs/path" } }
+    },
+    "voice": {
+      "type": "object", "additionalProperties": false, "required": ["engine", "model"],
+      "properties": { "engine": { "enum": ["piper", "kokoro"] }, "model": { "$ref": "#/$defs/path" }, "config": { "$ref": "#/$defs/path" }, "voiceData": { "$ref": "#/$defs/path" }, "sample": { "$ref": "#/$defs/path" } },
+      "allOf": [{ "if": { "properties": { "engine": { "const": "kokoro" } }, "required": ["engine"] }, "then": { "properties": { "voiceData": { "$ref": "#/$defs/path" } }, "required": ["voiceData"] } }]
+    },
+    "theme": { "type": "object", "additionalProperties": false, "required": ["tokens"], "properties": { "tokens": { "$ref": "#/$defs/path" } } },
+    "sounds": { "type": "object", "additionalProperties": false, "required": ["cues"], "properties": { "cues": { "$ref": "#/$defs/path" } } }
+  }
+}
