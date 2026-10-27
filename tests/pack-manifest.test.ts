@@ -27,3 +27,14 @@ test('strict manifest parsing rejects duplicates, invalid UTF-8 and oversized da
  expect(validator.parse(new Uint8Array([0xff])).ok).toBe(false);
  expect(validator.parse(new Uint8Array(65537)).ok).toBe(false);
 });
+
+test('manifest references must be listed and paths must be safe on Windows',()=>{
+ const hash='0'.repeat(64);
+ expect(validator.checkReferences(base)).toEqual({ok:true});
+ for(const files of [{'other.json':hash},{'pack.json':hash,'tokens.json':hash},{'tokens.json':hash,'TOKENS.JSON':hash},
+  {'tokens.json':hash,'CON.txt':hash},{'tokens.json':hash,'folder.':hash},{'tokens.json':hash,'a':hash,'a/b.json':hash}]){
+  expect(validator.checkReferences({...base,files}).ok).toBe(false);
+ }
+ expect(validator.checkReferences({...base,type:'voice',files:{'model.onnx':hash},content:{engine:'piper',model:'model.onnx'}})).toEqual({ok:true});
+ expect(validator.parse(new TextEncoder().encode(JSON.stringify({...base,content:{tokens:'unlisted.json'}}))).ok).toBe(false);
+});
