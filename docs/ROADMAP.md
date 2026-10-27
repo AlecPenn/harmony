@@ -34,9 +34,9 @@ If not met, the fix is distribution, not pricing. These thresholds are first gue
       (dependencies were not installed in that session). Fix anything it broke.
 - [x] Settings UI to set the home town (place + optional lat/lon), saved to `data/profile.json` or the config store.
       Settings saves the private profile and optional coordinates (2026-10-27).
-- [ ] First run with no home set: when asked for weather/local info without a place, she asks which town and offers
+- [x] First run with no home set: when asked for weather without a place, she asks which town and offers
       to remember it — rather than failing or guessing.
-  - 2026-10-27: Weather with no saved home asks and offers the Settings path; saving requires an explicit Settings action. A live model/voice follow-up and other local-info paths still need verification.
+  - 2026-10-27: Weather asks and offers the Settings path; saving requires an explicit Settings action. The installed local model handled the follow-up in a text-level check. Voice capture/playback was not tested. God's Eye remains out of scope as stated above.
 - [x] CI: `.github/workflows/ci.yml` running `npm ci`, `npm run typecheck`, `npm test` on `windows-latest` for pushes
       and PRs to `main`. (An earlier session was blocked from writing `.github/`.)
 - [ ] `CHANGELOG.md` started; version in `package.json` follows semver.
